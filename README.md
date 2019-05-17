@@ -10,6 +10,5 @@ This library provides a quick and simple way to send messages using TWW
 
 ```php
 $client = new Client('user', 'pass');
-
 $client->send('11 98888-1111', 'Happy Day', 123);
 ```

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tww;
 
 class Client
 {
-    /** @var string */
+    /** @var string[] */
     private $credentials;
 
     public function __construct(string $twwUser, string $twwPass)
@@ -18,6 +20,9 @@ class Client
     public function send(string $to, string $text, ?string $id = null)
     {
         $phone = preg_replace("/[(,),\-,\s]/", "", $to);
+        if ($phone === null) {
+            throw new \RuntimeException('Unable to remove invalid characters');
+        }
         $phone = preg_replace('/^' . preg_quote('+55', '/') . '/', '', $phone);
 
         $text      = $this->convertToAsciiSet($text);
@@ -46,7 +51,7 @@ class Client
      * Swap incompatible characters with compatible ones.
      * Ex: Swaps [ã | à | á] with [a]
      */
-    private function convertToAsciiSet(string $text)
+    private function convertToAsciiSet(string $text) : string
     {
         $unwanted_array = [
             'Š' => 'S',
