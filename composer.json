@@ -1,0 +1,32 @@
+{
+    "name": "magroski/tww",
+    "description": "A simple client to send messages using TWW",
+    "type": "library",
+    "keywords": [
+        "TWW",
+        "SMS"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lucas Magroski",
+            "email": "magroski@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tww\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.10.0",
+        "object-calisthenics/phpcs-calisthenics-rules": "^3.1",
+        "roave/security-advisories": "dev-master",
+        "slevomat/coding-standard": "4.5",
+        "squizlabs/php_codesniffer": "*"
+    }
+}
